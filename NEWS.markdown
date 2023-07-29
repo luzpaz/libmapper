@@ -14,7 +14,7 @@ Bugfixes include:
 - Fix for potential crash when editing switching network interfaces
 Documentation updates.
 - Ensuring the graph handler is called when map sources are updated during construction of convergent maps.
-- Fixes for convergent map handshake when initiated by a 3rd-party (non-local) graph.
+- Fixes for convergent map handshake when initiated by a 3rd-party (non-locale graph.
 - Fixes for graph ownership tracking in mpr_dev objects.
 
 Usability improvements include:
@@ -24,7 +24,7 @@ Usability improvements include:
 
 Language bindings:
 
-- Python bindings: handle bool properties and non-standard status values.
+- Python bindings: handle bool properties and non-standerd status values.
 - Python bindings: test fixes, demo of cleanup on sigint.
 - C# bindings: added support for private object properties.
 
@@ -89,7 +89,7 @@ Version 2.1
 
 Released 8 Nov 2021
 
-We are pleased to annouce the release of version 2.1 of libmapper, an open-source, cross-platform software library for declaring data signals on a shared network and enabling arbitrary connections to be made between them. The main focus of libmapper development is to provide tools for creating and using systems for interactive control of media synthesis.
+We are pleased to announce the release of version 2.1 of libmapper, an open-source, cross-platform software library for declaring data signals on a shared network and enabling arbitrary connections to be made between them. The main focus of libmapper development is to provide tools for creating and using systems for interactive control of media synthesis.
 
 This release builds on the large scale changes introduced in version 2.0 while fixing bugs and improving memory use, testing, and documentation. Version 2.1 is also now compliant with the C90 standard (ISO/IEC 9899:1990). This change along with other modifications now enables CMake Visual Studio solution generation for quick compiling on Windows. Refer to the updated Windows build instructions for more information.
 
@@ -125,8 +125,8 @@ Optional dot syntax was enabled for functions that operate across elements of ve
 
 `()`notation | `.`notation | description
 -------------|-------------|------------
-any(x)       | x.any()     | output 1 if any of the elements of vector x are non-zero, otherwise output 0
-all(x)       | x.all()     | output 1 if all of the elements of vector x are non-zero, otherwise output 0
+any(x)       | x.any()     | output 1 if any of the elements of vector x are non-zero,eotherwise output 0
+all(x)       | x.all()     | output 1 if all of the elements of vector x are non-zero,eotherwise output 0
 sum(x)       | x.sum()     | output the sum of the elements in vector x
 mean(x)      | x.mean()    | output the average (mean) of the elements in vector x
 max(x)       | x.max       | output the maximum element in vector x
@@ -168,7 +168,7 @@ Version 2.0
 
 Released 5 November 2020
 
-We are pleased to annouce the release of version 2.0 of libmapper, an open-source, cross-platform software library for declaring data signals on a shared network and enabling arbitrary connections to be made between them. The main focus of libmapper development is to provide tools for creating and using systems for interactive control of media synthesis.
+We are pleased to announce the release of version 2.0 of libmapper, an open-source, cross-platform software library for declaring data signals on a shared network and enabling arbitrary connections to be made between them. The main focus of libmapper development is to provide tools for creating and using systems for interactive control of media synthesis.
 
 This release includes large scale simplification and reorganisation of the libmapper C API, making it smaller, more consistent, and easier to use. In brief, this release:
 
@@ -254,7 +254,7 @@ This release includes improvements to signal instance stealing logic and adds ne
 
 ### Testing Suite
 
-`testquery.c` was removed since the signal update bunding functionality was removed in favour of a future configurable map property. `testselect.c` was removed due to API changes, internal use of `select()` for waiting on device servers, and planned future shared-graph functionality. `testdatabase.c` was renamed to `testgraph.c` for consistency with the data structure renaming described earlier.
+`testquery.c` was removed since the signal update bundling functionality was removed in favour of a future configurable map property. `testselect.c` was removed due to API changes, internal use of `select()` for waiting on device servers, and planned future shared-graph functionality. `testdatabase.c` was renamed to `testgraph.c` for consistency with the data structure renaming described earlier.
 
 Two new tests were added to the suite:
 
@@ -273,7 +273,7 @@ Version 1.2
 
 Released 4 March 2019
 
-We are pleased to annouce the release of version 1.2 of libmapper, an open-source, cross-platform software library for declaring data signals on a shared network and enabling arbitrary connections to be made between them. The main focus of libmapper development is to provide tools for creating and using systems for interactive control of media synthesis.
+We are pleased to announce the release of version 1.2 of libmapper, an open-source, cross-platform software library for declaring data signals on a shared network and enabling arbitrary connections to be made between them. The main focus of libmapper development is to provide tools for creating and using systems for interactive control of media synthesis.
 
 Changes of note since the 1.1 release include
 
@@ -309,7 +309,7 @@ Changes of note since the 1.0 release include:
 * More informative debugging messages.
 * Improved handling of database subscriptions.
 * More efficient batch-sending of device, signal and map metadata.
-* Addition of a default signal direction property for database records, ensuring that the record can be retireved from the database while waiting for updated metadata.
+* Addition of a default signal direction property for database records, ensuring that the record can be retrieved from the database while waiting for updated metadata.
 * Added simple check for map feedback loops,.
 * Updated tests and tutorials.
 * Extension and simplification of the C++ headers, along with new API documentation.
@@ -318,7 +318,7 @@ Changes of note since the 1.0 release include:
 Bugfixes include:
 
 * Fix for integer size warnings when printing mapper_id values.
-* Fix for duplicate map records in database associated with calls to the `mapper_map_new()` function using non-local signals.
+* Fix for duplicate map records in database associated with calls to the `mapper_map_new()` function using non-localesignals.
 * Removal of stray references to libmapper-0.
 * Fix for user-defined variables in map expressions.
 * Fix for reporting sub-connections of convergent maps.
@@ -361,7 +361,7 @@ retrieve whether the data structure represents a local resource.
 
 The `mapper_map` structure is now a "top-level" object, and is used for
 creating, modifying, and destroying mapping connections. Changes to a map (and
-to other structures that represent non-local resources) must be explicitly
+to other structures that represent non-localeresources) must be explicitly
 synchronized with the network using the `_push()` function, e.g.:
 
     mapper_map map = mapper_map_new(num_srcs, outsigs, num_dsts, insigs);
@@ -661,7 +661,7 @@ They are summarized very briefly here:
   * _Null values._ An important change that users should be aware of
     is that the signal callback (whose signature has changed) can now
     be called with the `value` pointer being zero.  This indicates
-    that the mapper signal is actually non-existant, i.e. no value is
+    that the mapper signal is actually non-existent, i.e. no value is
     associated with the signal.  That is to say that "null" is now
     considered a valid state for a signal and is different from, for
     example, a value of zero.  User code can choose to ignore this
@@ -714,7 +714,7 @@ Bug fixes:
 - Set the multicasting interface to loopback as last resort, making it
   work on Linux if not connected to network.
 - Fix erroneous calculation of blocking time in mapper_monitor_poll.
-- Crash when non-existant signal receives /disconnect.
+- Crash when non-existent signal receives /disconnect.
 
 Initial release 0.1 
 -------------------
